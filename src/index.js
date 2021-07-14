@@ -7,10 +7,12 @@ import Navbar from "./components/Navbar";
 
 
 import "./styles.scss";
+import useLocalStorage from "./hooks/useLocalStorage";
+import useDarkMode from "./hooks/useDarkMode";
 
 const App = () => {
-  const [coinData, setCoinData] = useState([]);
-  const [darkMode, setDarkMode] = useState(false);
+  const [coinData, setCoinData] = useLocalStorage('coinData',[]) //[storedValue, setStoredValue];
+  const [darkMode, setDarkMode] = useDarkMode(false) //[darkMode, setDarkMode];
 
   useEffect(() => {
     axios
